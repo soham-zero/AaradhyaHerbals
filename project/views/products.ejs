@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<main>
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Our Products</h1>
+            <p class="page-subtitle">Discover our collection of authentic Ayurvedic formulations</p>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid">
+                <% products.forEach(product => { %>
+                    <div class="product-card hover-card">
+                        <div class="product-image">
+                            <img src="<%= product.image %>" alt="<%= product.name %>" onerror="this.src='https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name"><%= product.name %></h3>
+                            <p class="product-description"><%= product.shortDescription %></p>
+                            <div class="product-price"><%= product.price %></div>
+                            
+                            <div class="product-hover-content">
+                                <div class="product-benefits">
+                                    <h4>Key Benefits:</h4>
+                                    <ul>
+                                        <% product.benefits.forEach(benefit => { %>
+                                            <li><%= benefit %></li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                                <a href="/products/<%= product.id %>" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

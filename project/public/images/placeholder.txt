@@ -1,0 +1,3 @@
+This folder contains product images.
+In a real application, you would place actual product images here.
+The application uses fallback images from Pexels when specific product images are not available.
