@@ -63,29 +63,36 @@
     </section>
 
     <!-- Featured Products -->
-    <section class="featured-products">
-        <div class="container">
-            <h2 class="section-title">Featured Products</h2>
-            <div class="products-grid">
-                <% products.forEach(product => { %>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="<%= product.image %>" alt="<%= product.name %>" onerror="this.src='https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=400'">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name"><%= product.name %></h3>
-                            <p class="product-description"><%= product.shortDescription %></p>
-                            <div class="product-price"><%= product.price %></div>
-                            <a href="/products/<%= product.id %>" class="btn btn-outline">View Details</a>
-                        </div>
+<section class="featured-products">
+    <div class="container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid">
+            <% products.forEach(product => { %>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                             alt="<%= product.productName %>">
                     </div>
-                <% }); %>
-            </div>
-            <div class="text-center">
-                <a href="/products" class="btn btn-primary">View All Products</a>
-            </div>
+                    <div class="product-info">
+                        <h3 class="product-name"><%= product.productName %></h3>
+                        <p class="product-description">
+                            <strong>Latin Name:</strong> <%= product.latinName %><br>
+                            <strong>Use:</strong> <%= product.use %>
+                        </p>
+                        <div class="product-price">
+                            ₹<%= product.price60TabsMDP %> (60 Tabs MDP)
+                        </div>
+                        <a href="/products/<%= product.docID %>" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+            <% }); %>
         </div>
-    </section>
+        <div class="text-center">
+            <a href="/products" class="btn btn-primary">View All Products</a>
+        </div>
+    </div>
+</section>
+
 
     <!-- CTA Section -->
     <section class="cta">

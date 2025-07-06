@@ -14,23 +14,29 @@
                 <% products.forEach(product => { %>
                     <div class="product-card hover-card">
                         <div class="product-image">
-                            <img src="<%= product.image %>" alt="<%= product.name %>" onerror="this.src='https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=400'">
+                            <!-- Optional: no image in your new fields, fallback -->
+                            <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                                 alt="<%= product.productName %>">
                         </div>
                         <div class="product-info">
-                            <h3 class="product-name"><%= product.name %></h3>
-                            <p class="product-description"><%= product.shortDescription %></p>
-                            <div class="product-price"><%= product.price %></div>
-                            
+                            <h3 class="product-name"><%= product.productName %></h3>
+                            <p class="product-description">
+                                <strong>Latin Name:</strong> <%= product.latinName %><br>
+                                <strong>Part Used:</strong> <%= product.part %><br>
+                                <strong>Use:</strong> <%= product.use %><br>
+                                <strong>Concentration:</strong> <%= product.concentration %>
+                            </p>
+
+                            <div class="product-price">
+                                <div><strong>Price (60 Tabs) MDP:</strong> ₹<%= product.price60TabsMDP %></div>
+                                <div><strong>Price (60 Tabs) MRP:</strong> ₹<%= product.price60TabsMRP %></div>
+                                <div><strong>Price (550 Tabs) MDP:</strong> ₹<%= product.price550TabsMDP %></div>
+                                <div><strong>Price (550 Tabs) MRP:</strong> ₹<%= product.price550TabsMRP %></div>
+                            </div>
+
                             <div class="product-hover-content">
-                                <div class="product-benefits">
-                                    <h4>Key Benefits:</h4>
-                                    <ul>
-                                        <% product.benefits.forEach(benefit => { %>
-                                            <li><%= benefit %></li>
-                                        <% }); %>
-                                    </ul>
-                                </div>
                                 <a href="/products/<%= product.id %>" class="btn btn-primary">View Details</a>
+
                             </div>
                         </div>
                     </div>

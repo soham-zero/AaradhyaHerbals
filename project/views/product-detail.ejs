@@ -6,56 +6,59 @@
             <div class="product-detail-grid">
                 <div class="product-images">
                     <div class="main-image">
-                        <img src="<%= product.image %>" alt="<%= product.name %>" onerror="this.src='https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600'">
+                        <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                             alt="<%= product.productName %>">
                     </div>
                 </div>
                 
                 <div class="product-info">
-                    <h1 class="product-title"><%= product.name %></h1>
-                    <p class="product-short-desc"><%= product.shortDescription %></p>
-                    <div class="product-price-large"><%= product.price %></div>
+                    <h1 class="product-title"><%= product.productName %></h1>
+                    <p class="product-short-desc">
+                        <strong>Latin Name:</strong> <%= product.latinName %><br>
+                        <strong>Part Used:</strong> <%= product.part %><br>
+                        <strong>Use:</strong> <%= product.use %><br>
+                        <strong>Concentration:</strong> <%= product.concentration %>
+                    </p>
+
+                    <div class="product-price-large">
+                        <div>₹<%= product.price60TabsMDP %> (60 Tabs MDP)</div>
+                        <div>₹<%= product.price60TabsMRP %> (60 Tabs MRP)</div>
+                        <div>₹<%= product.price550TabsMDP %> (550 Tabs MDP)</div>
+                        <div>₹<%= product.price550TabsMRP %> (550 Tabs MRP)</div>
+                    </div>
                     
                     <div class="product-actions">
                         <button class="btn btn-primary btn-large">Add to Cart</button>
                         <button class="btn btn-secondary btn-large">Buy Now</button>
-                    </div>
-                    
-                    <div class="product-benefits">
-                        <h3>Key Benefits</h3>
-                        <ul>
-                            <% product.benefits.forEach(benefit => { %>
-                                <li><%= benefit %></li>
-                            <% }); %>
-                        </ul>
                     </div>
                 </div>
             </div>
             
             <div class="product-details-tabs">
                 <div class="tabs">
-                    <button class="tab-btn active" data-tab="description">Description</button>
-                    <button class="tab-btn" data-tab="ingredients">Ingredients</button>
+                    <button class="tab-btn active" data-tab="description">Details</button>
                     <button class="tab-btn" data-tab="usage">Usage</button>
                 </div>
                 
                 <div class="tab-content active" id="description">
-                    <h3>Product Description</h3>
-                    <p><%= product.description %></p>
+                    <h3>Product Details</h3>
+                    <p>
+                        This product, <strong><%= product.productName %></strong> 
+                        (<%= product.latinName %>), is a trusted Ayurvedic remedy traditionally used as 
+                        <%= product.use %>. The part used is <%= product.part %> with a concentration of <%= product.concentration %>.
+                    </p>
                 </div>
-                
-                <div class="tab-content" id="ingredients">
-                    <h3>Ingredients</h3>
-                    <ul class="ingredients-list">
-                        <% product.ingredients.forEach(ingredient => { %>
-                            <li><%= ingredient %></li>
-                        <% }); %>
-                    </ul>
-                </div>
-                
+
                 <div class="tab-content" id="usage">
                     <h3>Usage Instructions</h3>
-                    <p>For best results, follow traditional Ayurvedic principles of consumption. Take as directed by your healthcare practitioner or as indicated on the package.</p>
-                    <p><strong>Important:</strong> Consult with a qualified healthcare provider before starting any herbal supplement regimen, especially if you have existing health conditions or are taking medications.</p>
+                    <p>
+                        For best results, follow traditional Ayurvedic principles of consumption. 
+                        Take as directed by your healthcare practitioner or as indicated on the package.
+                    </p>
+                    <p>
+                        <strong>Important:</strong> Consult with a qualified healthcare provider before starting 
+                        any herbal supplement regimen, especially if you have existing health conditions or are taking medications.
+                    </p>
                 </div>
             </div>
         </div>
