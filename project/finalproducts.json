@@ -1,0 +1,98 @@
+[
+  {
+    "id": 105,
+    "productName": "Shallaki",
+    "latinName": "Boswellia serrata",
+    "part": "Gum",
+    "concentration": "3:01",
+    "use": "Anti-arthritic",
+    "price275TabsMRP": 1709,
+    "price275TabsMDP": 1367.2,
+    "price30TabsMRP": 323,
+    "price30TabsMDP": 258
+  },
+  {
+    "id": 106,
+    "productName": "Neem panchang",
+    "latinName": "Azadirachta indica",
+    "part": "Leaf",
+    "concentration": "10:01",
+    "use": "Blood purifier",
+    "price275TabsMRP": 950,
+    "price275TabsMDP": 760,
+    "price30TabsMRP": 190,
+    "price30TabsMDP": 152
+  },
+  {
+    "id": 107,
+    "productName": "Kokam",
+    "latinName": "Garcinia cambogia",
+    "part": "Fruit",
+    "concentration": "10:01",
+    "use": "Antiobesity",
+    "price275TabsMRP": 932,
+    "price275TabsMDP": 745.6,
+    "price30TabsMRP": 255,
+    "price30TabsMDP": 204
+  },
+  {
+    "id": 108,
+    "productName": "ASTHI MAJJA PACHAK EXTRACT",
+    "latinName": "",
+    "part": "",
+    "concentration": "",
+    "use": "",
+    "price550TabsMRP": 1100,
+    "price550TabsMDP": 880,
+    "price30TabsMRP": 100,
+    "price30TabsMDP": 80
+  },
+  {
+    "id": 109,
+    "productName": "MANS PACHAK EXTRACT",
+    "latinName": "",
+    "part": "",
+    "concentration": "",
+    "use": "",
+    "price550TabsMRP": 1100,
+    "price550TabsMDP": 880,
+    "price30TabsMRP": 100,
+    "price30TabsMDP": 80
+  },
+  {
+    "id": 110,
+    "productName": "MEDO PACHAK EXTRACT",
+    "latinName": "",
+    "part": "",
+    "concentration": "",
+    "use": "",
+    "price550TabsMRP": 2100,
+    "price550TabsMDP": 1680,
+    "price30TabsMRP": 165,
+    "price30TabsMDP": 132
+  },
+  {
+    "id": 111,
+    "productName": "RAKT PACHAK EXTRACT",
+    "latinName": "",
+    "part": "",
+    "concentration": "",
+    "use": "",
+    "price550TabsMRP": 1520,
+    "price550TabsMDP": 1216,
+    "price30TabsMRP": 150,
+    "price30TabsMDP": 120
+  },
+  {
+    "id": 112,
+    "productName": "RAS PACHAK EXTRACT",
+    "latinName": "",
+    "part": "",
+    "concentration": "",
+    "use": "",
+    "price550TabsMRP": 1520,
+    "price550TabsMDP": 1216,
+    "price30TabsMRP": 150,
+    "price30TabsMDP": 120
+  }
+]
