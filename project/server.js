@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', async (req, res) => {
   try {
     const snapshot = await productsCollection.limit(3).get();
-    const products = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const products = snapshot.docs.map(doc => ({ docID: doc.id, ...doc.data() }));
     res.render('index', { 
       title: 'Ayurvedic Wellness - Natural Herbal Medicine',
       products
@@ -46,11 +46,12 @@ app.get('/', async (req, res) => {
   }
 });
 
+
 // Products page — show all products
 app.get('/products', async (req, res) => {
   try {
     const snapshot = await productsCollection.get();
-    const products = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const products = snapshot.docs.map(doc => ({ docID: doc.id, ...doc.data() }));
     res.render('products', { 
       title: 'Our Products - Ayurvedic Wellness',
       products
