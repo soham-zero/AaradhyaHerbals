@@ -1,62 +1,136 @@
 <%- include('partials/header') %>
 
 <main>
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title">Our Products</h1>
-            <p class="page-subtitle">Discover our collection of authentic Ayurvedic formulations</p>
-        </div>
-    </section>
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Our Products</h1>
+      <p class="page-subtitle">Discover our collection of authentic Ayurvedic formulations</p>
+    </div>
+  </section>
 
-    <section class="products-section">
-        <div class="container">
-            <div class="products-grid">
-                <% products.forEach(product => { %>
-                    <div class="product-card hover-card">
-                        <div class="product-image">
-                            <!-- Optional: no image in your new fields, fallback -->
-                            <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                                 alt="<%= product.productName %>">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name"><%= product.productName %></h3>
-                            <p class="product-description">
-                                <strong>Latin Name:</strong> <%= product.latinName %><br>
-                                <strong>Part Used:</strong> <%= product.part %><br>
-                                <strong>Use:</strong> <%= product.use %><br>
-                                <strong>Concentration:</strong> <%= product.concentration %>
-                            </p>
-
-                            <div class="product-price">
-                                    <% if (product.id == '105' || product.id == '106' || product.id == '107') { %>
-                                        <div><strong>Price (30 Tabs) MDP:</strong> ₹<%= product.price30TabsMDP %></div>
-                                        <div><strong>Price (30 Tabs) MRP:</strong> ₹<%= product.price30TabsMRP %></div>
-                                        <div><strong>Price (275 Tabs) MDP:</strong> ₹<%= product.price275TabsMDP %></div>
-                                        <div><strong>Price (275 Tabs) MRP:</strong> ₹<%= product.price275TabsMRP %></div>
-                                    <% } else if (product.id == '108' || product.id == '109' || product.id == '110' || product.id == '111' || product.id == '112') { %>
-                                        <div><strong>Price (30 Tabs) MDP:</strong> ₹<%= product.price30TabsMDP %></div>
-                                        <div><strong>Price (30 Tabs) MRP:</strong> ₹<%= product.price30TabsMRP %></div>
-                                        <div><strong>Price (550 Tabs) MDP:</strong> ₹<%= product.price550TabsMDP %></div>
-                                        <div><strong>Price (550 Tabs) MRP:</strong> ₹<%= product.price550TabsMRP %></div>
-                                    <% } else { %>
-                                        <div><strong>Price (60 Tabs) MDP:</strong> ₹<%= product.price60TabsMDP %></div>
-                                        <div><strong>Price (60 Tabs) MRP:</strong> ₹<%= product.price60TabsMRP %></div>
-                                        <div><strong>Price (550 Tabs) MDP:</strong> ₹<%= product.price550TabsMDP %></div>
-                                        <div><strong>Price (550 Tabs) MRP:</strong> ₹<%= product.price550TabsMRP %></div>
-                                    <% } %>
-                            </div>
-
-
-                            <div class="product-hover-content">
-                                     <a href="/products/<%= product.docID %>" class="btn btn-primary">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                <% }); %>
-               
+  <section class="products-section">
+    <div class="container">
+      <div class="products-grid">
+        <% products.forEach(product => { %>
+          <div class="product-card hover-card">
+            <div class="product-image">
+              <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                   alt="<%= product.productName %>">
             </div>
-        </div>
-    </section>
+            <div class="product-info">
+              <h3 class="product-name"><%= product.productName %></h3>
+              <p class="product-description">
+                <strong>Latin Name:</strong> <%= product.latinName %><br>
+                <strong>Part Used:</strong> <%= product.part %><br>
+                <strong>Use:</strong> <%= product.use %><br>
+                <strong>Concentration:</strong> <%= product.concentration %>
+              </p>
+
+              <div class="price-box">
+                <% if (product.price60TabsMRP) { %>
+                  <div class="price-item"><span>MRP:</span> ₹<%= product.price60TabsMRP %> (60 Tabs)</div>
+                <% } else if (product.price30TabsMRP) { %>
+                  <div class="price-item"><span>MRP:</span> ₹<%= product.price30TabsMRP %> (30 Tabs)</div>
+                <% } else if (product.price550TabsMRP) { %>
+                  <div class="price-item"><span>MRP:</span> ₹<%= product.price550TabsMRP %> (550 Tabs)</div>
+                <% } else { %>
+                  <div class="price-item"><span>MRP:</span> Contact for price</div>
+                <% } %>
+              </div>
+
+              <div class="product-hover-content">
+                <a href="/products/<%= product.docID %>" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Grid and Card Layout */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #f0f7f4;
+      box-shadow: 0 4px 12px rgba(0, 100, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #d2e6dd;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(0, 128, 0, 0.1);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 3px solid #a0d6b4;
+    }
+
+    .product-info {
+      padding: 1.2rem;
+      color: #2e4e3f;
+    }
+
+    .product-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #245b48;
+    }
+
+    .product-description {
+      font-size: 0.92rem;
+      color: #405e4c;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .price-box {
+      background: #e7f3eb;
+      border-left: 4px solid #5c9e7b;
+      border-radius: 10px;
+      padding: 0.9rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      color: #2f4d3c;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .price-item span {
+      font-weight: 600;
+      color: #245b48;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(to right, #3c8c6c, #60af88);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(to right, #2d7355, #4a9971);
+    }
+  </style>
 </main>
 
 <%- include('partials/footer') %>

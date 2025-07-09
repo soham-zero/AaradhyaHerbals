@@ -37,7 +37,7 @@ app.get('/', async (req, res) => {
     const snapshot = await productsCollection.limit(3).get();
     const products = snapshot.docs.map(doc => ({ docID: doc.id, ...doc.data() }));
     res.render('index', { 
-      title: 'Ayurvedic Wellness - Natural Herbal Medicine',
+      title: 'Aaradhya Herbals - Natural Herbal Medicine',
       products
     });
   } catch (err) {
@@ -53,7 +53,7 @@ app.get('/products', async (req, res) => {
     const snapshot = await productsCollection.get();
     const products = snapshot.docs.map(doc => ({ docID: doc.id, ...doc.data() }));
     res.render('products', { 
-      title: 'Our Products - Ayurvedic Wellness',
+      title: 'Our Products - Aaradhya Herbals',
       products
     });
   } catch (err) {
@@ -71,7 +71,7 @@ app.get('/products/:id', async (req, res) => {
     }
     const product = { id: doc.id, ...doc.data() };
     res.render('product-detail', { 
-      title: `${product.productName} - Ayurvedic Wellness`,
+      title: `${product.productName} - Aaradhya Herbals`,
       product
     });
   } catch (err) {

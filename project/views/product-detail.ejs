@@ -1,68 +1,240 @@
 <%- include('partials/header') %>
 
 <main>
-    <section class="product-detail">
-        <div class="container">
-            <div class="product-detail-grid">
-                <div class="product-images">
-                    <div class="main-image">
-                        <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                             alt="<%= product.productName %>">
-                    </div>
-                </div>
-                
-                <div class="product-info">
-                    <h1 class="product-title"><%= product.productName %></h1>
-                    <p class="product-short-desc">
-                        <strong>Latin Name:</strong> <%= product.latinName %><br>
-                        <strong>Part Used:</strong> <%= product.part %><br>
-                        <strong>Use:</strong> <%= product.use %><br>
-                        <strong>Concentration:</strong> <%= product.concentration %>
-                    </p>
-
-                    <div class="product-price-large">
-                        <div>₹<%= product.price60TabsMDP %> (60 Tabs MDP)</div>
-                        <div>₹<%= product.price60TabsMRP %> (60 Tabs MRP)</div>
-                        <div>₹<%= product.price550TabsMDP %> (550 Tabs MDP)</div>
-                        <div>₹<%= product.price550TabsMRP %> (550 Tabs MRP)</div>
-                    </div>
-                    
-                    <div class="product-actions">
-                        <button class="btn btn-primary btn-large">Add to Cart</button>
-                        <button class="btn btn-secondary btn-large">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="product-details-tabs">
-                <div class="tabs">
-                    <button class="tab-btn active" data-tab="description">Details</button>
-                    <button class="tab-btn" data-tab="usage">Usage</button>
-                </div>
-                
-                <div class="tab-content active" id="description">
-                    <h3>Product Details</h3>
-                    <p>
-                        This product, <strong><%= product.productName %></strong> 
-                        (<%= product.latinName %>), is a trusted Ayurvedic remedy traditionally used as 
-                        <%= product.use %>. The part used is <%= product.part %> with a concentration of <%= product.concentration %>.
-                    </p>
-                </div>
-
-                <div class="tab-content" id="usage">
-                    <h3>Usage Instructions</h3>
-                    <p>
-                        For best results, follow traditional Ayurvedic principles of consumption. 
-                        Take as directed by your healthcare practitioner or as indicated on the package.
-                    </p>
-                    <p>
-                        <strong>Important:</strong> Consult with a qualified healthcare provider before starting 
-                        any herbal supplement regimen, especially if you have existing health conditions or are taking medications.
-                    </p>
-                </div>
-            </div>
+  <section class="product-detail">
+    <div class="container">
+      <div class="product-detail-grid">
+        <!-- Product Image -->
+        <div class="product-images">
+          <div class="main-image">
+            <img
+              src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="<%= product.productName %>"
+            />
+          </div>
         </div>
-    </section>
+
+        <!-- Product Info -->
+        <div class="product-info">
+          <h1 class="product-title"><%= product.productName %></h1>
+          <p class="product-short-desc">
+            <strong>Latin Name:</strong> <%= product.latinName %><br />
+            <strong>Part Used:</strong> <%= product.part %><br />
+            <strong>Use:</strong> <%= product.use %><br />
+            <strong>Concentration:</strong> <%= product.concentration %>
+          </p>
+
+          <div class="product-price-large">
+            <% if (product.price30TabsMRP || product.price30TabsMDP) { %>
+              <div class="price-tag"><strong>30 Tabs:</strong>
+                <% if (product.price30TabsMRP) { %>
+                  MRP ₹<%= product.price30TabsMRP %>
+                <% } %>
+                <% if (product.price30TabsMDP) { %>
+                  <span class="mdp">MDP ₹<%= product.price30TabsMDP %></span>
+                <% } %>
+              </div>
+            <% } %>
+
+            <% if (product.price60TabsMRP || product.price60TabsMDP) { %>
+              <div class="price-tag"><strong>60 Tabs:</strong>
+                <% if (product.price60TabsMRP) { %>
+                  MRP ₹<%= product.price60TabsMRP %>
+                <% } %>
+                <% if (product.price60TabsMDP) { %>
+                  <span class="mdp">MDP ₹<%= product.price60TabsMDP %></span>
+                <% } %>
+              </div>
+            <% } %>
+
+            <% if (product.price275TabsMRP || product.price275TabsMDP) { %>
+              <div class="price-tag"><strong>275 Tabs:</strong>
+                <% if (product.price275TabsMRP) { %>
+                  MRP ₹<%= product.price275TabsMRP %>
+                <% } %>
+                <% if (product.price275TabsMDP) { %>
+                  <span class="mdp">MDP ₹<%= product.price275TabsMDP %></span>
+                <% } %>
+              </div>
+            <% } %>
+
+            <% if (product.price550TabsMRP || product.price550TabsMDP) { %>
+              <div class="price-tag"><strong>550 Tabs:</strong>
+                <% if (product.price550TabsMRP) { %>
+                  MRP ₹<%= product.price550TabsMRP %>
+                <% } %>
+                <% if (product.price550TabsMDP) { %>
+                  <span class="mdp">MDP ₹<%= product.price550TabsMDP %></span>
+                <% } %>
+              </div>
+            <% } %>
+          </div>
+
+          <div class="product-actions">
+            <button class="btn btn-primary btn-large">Add to Cart</button>
+            <button class="btn btn-secondary btn-large">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Tab Section -->
+      <div class="product-details-tabs">
+        <div class="tab-content active">
+          <h3>Product Details</h3>
+          <p>
+            <strong><%= product.productName %></strong> (<%= product.latinName %>) is a trusted Ayurvedic formulation commonly used for <%= product.use %>. This product is prepared using <%= product.part %> with a concentration of <%= product.concentration %>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .product-detail {
+      background: #f5fbf8;
+      padding: 4rem 1rem;
+    }
+
+    .product-detail-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: flex-start;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .product-images {
+      flex: 1 1 40%;
+    }
+
+    .main-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 100, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .main-image img:hover {
+      transform: scale(1.03);
+    }
+
+    .product-info {
+      flex: 1 1 50%;
+    }
+
+    .product-title {
+      font-size: 2.2rem;
+      color: #245b48;
+      margin-bottom: 1rem;
+    }
+
+    .product-short-desc {
+      color: #405e4c;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-price-large .price-tag {
+      background: #e7f3eb;
+      border-left: 4px solid #5c9e7b;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      color: #2f4d3c;
+      transition: background 0.3s;
+    }
+
+    .product-price-large .price-tag:hover {
+      background: #d6efe2;
+    }
+
+    .product-price-large .price-tag .mdp {
+      display: block;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .product-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-large {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #3c8c6c, #60af88);
+      border: none;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(to right, #2d7355, #4a9971);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      border: 2px solid #60af88;
+      color: #3c8c6c;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: #ecf7f1;
+    }
+
+    .product-details-tabs {
+      margin-top: 3rem;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      animation: fadeIn 1s ease;
+    }
+
+    .product-details-tabs h3 {
+      color: #245b48;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .product-detail-grid {
+        flex-direction: column;
+      }
+
+      .product-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
 </main>
 
 <%- include('partials/footer') %>

@@ -1,109 +1,233 @@
 <%- include('partials/header') %>
 
-<main>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Ancient Wisdom, Modern Wellness</h1>
-            <p class="hero-subtitle">Discover the power of authentic Ayurvedic medicine crafted with pure, natural ingredients for your holistic health journey.</p>
-            <div class="hero-buttons">
-                <a href="/products" class="btn btn-primary">Explore Products</a>
-                <a href="#about" class="btn btn-secondary">Learn More</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ayurvedic herbs and spices">
-        </div>
-    </section>
-
-    <!-- Mission Section -->
-    <section class="mission" id="about">
-        <div class="container">
-            <div class="mission-content">
-                <h2 class="section-title">Our Mission</h2>
-                <p class="mission-text">To bridge the gap between ancient Ayurvedic wisdom and modern wellness needs, providing authentic, high-quality herbal medicines that nurture the body, mind, and spirit naturally.</p>
-                <div class="mission-motto">
-                    <blockquote>
-                        "Health is not merely the absence of disease, but a state of complete physical, mental and spiritual well-being."
-                    </blockquote>
-                    <cite>- Our Guiding Philosophy</cite>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2 class="section-title">About Ayurvedic Wellness</h2>
-                    <p>Founded on the principles of traditional Ayurvedic medicine, we are dedicated to providing pure, authentic herbal formulations that have been trusted for thousands of years.</p>
-                    <p>Our products are carefully crafted using time-honored methods and the finest organic ingredients, ensuring maximum potency and effectiveness while maintaining the integrity of ancient wisdom.</p>
-                    <div class="about-values">
-                        <div class="value">
-                            <h3>🌱 Pure & Natural</h3>
-                            <p>100% organic ingredients sourced from trusted farmers</p>
-                        </div>
-                        <div class="value">
-                            <h3>🏺 Traditional Methods</h3>
-                            <p>Ancient preparation techniques preserved for authenticity</p>
-                        </div>
-                        <div class="value">
-                            <h3>🔬 Quality Assured</h3>
-                            <p>Rigorous testing for purity and potency</p>
-                        </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-banner">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span>Ancient Wisdom</span><br>
+                        <span>Modern Wellness</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Discover the power of authentic Ayurvedic medicine crafted with pure, natural ingredients for
+                        your holistic health journey.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/products" class="btn btn-primary">Explore Products</a>
+                        <a href="#about" class="btn btn-secondary">Learn More</a>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Traditional Ayurvedic preparation">
+            </div>
+        </section>
+
+        <style>
+            .hero-banner {
+                position: relative;
+                background: url('https://images.pexels.com/photos/3577293/pexels-photo-3577293.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center/cover;
+                height: 100vh;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero-overlay {
+                background: rgba(0, 0, 0, 0.6);
+                /* dark overlay */
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 800px;
+                animation: fadeInUp 1s ease;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                font-weight: bold;
+                color: #f0f5f2;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+                margin-bottom: 2rem;
+                line-height: 1.6;
+                color: #d9e5dd;
+            }
+
+            .hero-buttons a {
+                margin: 0 0.5rem;
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+                border-radius: 6px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: background 0.3s ease;
+            }
+
+            .btn-primary {
+                background: linear-gradient(to right, #3c8c6c, #60af88);
+                color: white;
+                border: none;
+            }
+
+            .btn-primary:hover {
+                background: linear-gradient(to right, #2f7456, #4fa274);
+            }
+
+            .btn-secondary {
+                background: transparent;
+                border: 2px solid #60af88;
+                color: #ffffff;
+            }
+
+            .btn-secondary:hover {
+                background: #ecf7f1;
+                color: #3c8c6c;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .hero-title {
+                    font-size: 2.2rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1.05rem;
+                }
+
+                .hero-buttons a {
+                    display: block;
+                    margin: 0.5rem auto;
+                }
+            }
+        </style>
+
+
+        <!-- Mission Section -->
+        <section class="mission" id="about">
+            <div class="container">
+                <div class="mission-content">
+                    <h2 class="section-title">Our Mission</h2>
+                    <p class="mission-text">
+                        To manufacture concentrated herbal medicines for enhanced effectiveness, and to develop safe,
+                        fast-acting solutions that inspire a natural shift toward herbal healing.
+                    </p>
+                    <div class="mission-motto">
+                        <blockquote>
+                            "Health is not merely the absence of disease, but a state of complete physical, mental and
+                            spiritual well-being."
+                        </blockquote>
+                        <cite>- Our Guiding Philosophy</cite>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Featured Products -->
-<section class="featured-products">
-    <div class="container">
-        <h2 class="section-title">Featured Products</h2>
-        <div class="products-grid">
-            <% products.forEach(product => { %>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                             alt="<%= product.productName %>">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name"><%= product.productName %></h3>
-                        <p class="product-description">
-                            <strong>Latin Name:</strong> <%= product.latinName %><br>
-                            <strong>Use:</strong> <%= product.use %>
-                        </p>
-                        <div class="product-price">
-                            ₹<%= product.price60TabsMDP %> (60 Tabs MDP)
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2 class="section-title">About Aaradhya Herbals</h2>
+                        <p>Aaradhya Herbals is a trusted and certified herbal company with 12 years of expertise in
+                            herbal extraction. Based in Annapurna Nagar, Indore (M.P.), we are accredited by FDA, GMP,
+                            ISO, and AYUSH.</p>
+                        <p>We manufacture over 250 proprietary Ayurvedic formulations and more than 150 classical
+                            medicines such as Ras Kalp, Bhasma, Parpati Kalp, Vati, Gutika, and Suvarna Kalp.</p>
+                        <p>We also produce 45+ herbal cosmetics and specialize in bulk single-herb extracts for
+                            institutions and professionals, with fast turnaround times and global reach.</p>
+                        <div class="about-values">
+                            <div class="value">
+                                <h3>✅ Certified & Trusted</h3>
+                                <p>FDA, GMP, ISO & AYUSH approved standards</p>
+                            </div>
+                            <div class="value">
+                                <h3>🧪 Wide Product Range</h3>
+                                <p>400+ Ayurvedic medicines & cosmetics</p>
+                            </div>
+                            <div class="value">
+                                <h3>🌍 Bulk & Global Supply</h3>
+                                <p>Single-herb extracts & third-party exports</p>
+                            </div>
                         </div>
-                        <a href="/products/<%= product.docID %>" class="btn btn-outline">View Details</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="/images/2996945.jpg"
+                            alt="Traditional Ayurvedic preparation">
                     </div>
                 </div>
-            <% }); %>
-        </div>
-        <div class="text-center">
-            <a href="/products" class="btn btn-primary">View All Products</a>
-        </div>
-    </div>
-</section>
-
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Start Your Wellness Journey Today</h2>
-                <p>Experience the transformative power of authentic Ayurvedic medicine</p>
-                <a href="/products" class="btn btn-primary">Shop Now</a>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
 
-<%- include('partials/footer') %>
+        
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="products-grid">
+                    <% products.forEach(product=> { %>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=400"
+                                    alt="<%= product.productName %>">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">
+                                    <%= product.productName %>
+                                </h3>
+                                <p class="product-description">
+                                    <strong>Latin Name:</strong>
+                                    <%= product.latinName %><br>
+                                        <strong>Use:</strong>
+                                        <%= product.use %>
+                                </p>
+                                <div class="product-price">
+                                    ₹<%= product.price60TabsMDP %> (60 Tabs MDP)
+                                </div>
+                                <a href="/products/<%= product.docID %>" class="btn btn-outline">View Details</a>
+                            </div>
+                        </div>
+                        <% }); %>
+                </div>
+                <div class="text-center">
+                    <a href="/products" class="btn btn-primary">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Start Your Wellness Journey Today</h2>
+                    <p>Experience the transformative power of authentic Ayurvedic medicine</p>
+                    <a href="/products" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
